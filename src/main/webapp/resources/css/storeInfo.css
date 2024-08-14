@@ -1,0 +1,136 @@
+@charset "UTF-8";
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+   
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+    }
+
+    header input {
+        width: 200px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+
+    nav a.active {
+        color: #fa0050;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .sorting {
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    .listings {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+}
+
+    .listing {
+	position: relative;
+	display: flex;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background-color: #fff;
+}
+
+    .listing img {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+        border-radius: 4px;
+    }
+
+    .details {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .details h2 {
+        margin: 0;
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .details .min_order {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+    }
+
+    .details .discount {
+        color: #fa0050;
+        font-weight: bold;
+        margin-top: auto; /* 텍스트 아래로 내리기 */
+    }
+
+    .details .time {
+        font-size: 14px;
+        color: #666;
+        margin-top: auto; /* 텍스트 아래로 내리기 */
+        text-align: right;
+    }
+
+    .modify-form {
+        /* display: flex; */
+        /* align-items: center; */
+        text-align: center; /* 수정하기 버튼 가운데 정렬을 위해 추가 */
+        margin-top: 10px; /* 버튼 위쪽 여백 추가 */
+    }
+
+    .modify-form input[type="submit"] {
+        background-color: #fa0050;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .modify-form input[type="submit"]:hover {
+        background-color: #e00045;
+    }
+    .modify-form input[type="button"] {
+        background-color: #fa0050;
+        color: white;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    .modify-form input[type="button"]:hover {
+        background-color: #e00045;
+    }
+    .container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+</style>

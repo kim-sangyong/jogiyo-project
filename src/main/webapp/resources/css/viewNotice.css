@@ -1,0 +1,65 @@
+@charset "UTF-8";
+.container {
+   margin-top: 10px;
+   margin-bottom: 50px;
+   max-width: 600px;
+   margin: 50px auto;
+   background-color: #f9f9f9;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 8px 16px rgba(1, 1, 1, 0.2);
+}
+
+.form-table {
+    margin-top: 10px;
+    margin-bottom: 50px;
+    width: 60%;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(1, 1, 1, 0.2);
+    border: 1px solid #white; /*테이블 테두리 색*/
+}
+
+.form-table td {
+    padding: 10px;
+    text-align: center;
+}
+
+.form-table input[type="text"],
+.form-table textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: white;
+    margin-top: 5px;
+}
+
+.form-table textarea {
+    resize: 200px;
+}
+.form-table button:hover {
+    background-color: #darkred;
+}
+tr:hover {
+    background-color: white;
+}
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container button {
+    background-color: #fa0050; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}

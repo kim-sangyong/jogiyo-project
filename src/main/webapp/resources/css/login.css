@@ -1,0 +1,81 @@
+@charset "EUC-KR";
+
+.form-container {
+	margin: 0 auto;
+	border-collapse: collapse;
+	width: 30%;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 8px 16px rgba(1, 1, 1, 0.2);
+	background-color: #f9f9f9;
+	padding: 20px;
+}
+
+.form-container td {
+	padding: 1px;
+}
+
+.form-container input[type="text"], .form-container input[type="password"]
+	{
+	width: calc(100% - 20px);
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	display: block;
+	margin: 10px auto;
+	font-size: 14px;
+}
+
+.form-container button {
+	background-color: #fa0050;
+	color: white;
+	border: none;
+	padding: 12px;
+	cursor: pointer;
+	border-radius: 5px;
+	width: calc(100% - 20px);
+	display: block;
+	margin: 10px auto;
+	font-size: 16px;
+}
+
+.form-container .actions form {
+	display: inline;
+}
+
+.form-container .actions button {
+	background-color: #fa0050;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 5px 0;
+}
+
+.form-container a {
+	color: #fa0050;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.form-container a:hover {
+	text-decoration: underline;
+}
+
+@media ( max-width : 768px) {
+	.form-container {
+		width: 80%;
+	}
+	.form-container input[type="text"], .form-container input[type="password"],
+		.form-container button {
+		width: 100%;
+		margin: 10px 0;
+	}
+}
+
+@media ( max-width : 480px) {
+	.form-container {
+		width: 100%;
+	}
+}

@@ -1,0 +1,87 @@
+@charset "UTF-8";
+/* Select 요소에 적용할 스타일 */
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Select 내의 옵션에 적용할 스타일 */
+select option {
+    font-size: 14px;
+}
+
+/* Textarea 요소에 적용할 스타일 */
+textarea {
+    width: 95%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-bottom: 10px;
+    resize: vertical; /* 세로 크기 조정 허용 */
+}
+
+/* Optional: 활성화된 Textarea 스타일 */
+textarea:focus {
+    border-color: #007bff; /* 포커스 시 border 색상 변경 */
+    outline: none; /* 포커스 시 기본 아웃라인 제거 */
+}
+.my-page-container {
+    width: 50%; /* 원하는 너비로 설정 */
+    margin: 0 auto; /* 가운데 정렬을 위해 좌우 여백을 자동으로 조정 */
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: 50px;
+    width: 500px; 
+   padding: 20px;
+     border: 1px solid #ccc;
+  border-radius: 10px;
+   background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+.my-page-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.my-page-input {
+     width: calc(100% - 20px);
+     padding: 8px;
+     margin-bottom: 15px;
+     border: 1px solid #ccc;
+     border-radius: 3px;
+     font-size: 14px;
+}
+
+.my-page-button {
+     padding: 10px 20px;
+     background-color: #fa0050;
+     color: white;
+     border: none;
+     border-radius: 3px;
+     cursor: pointer;
+     font-size: 16px;
+     transition: background-color 0.3s ease;
+     margin-bottom: 20px;
+}
+
+.my-page-button:hover {
+     background-color: #45a049;
+}
+.store-h1 {
+     font-weight: bold;
+     color: #fa0050;
+     font-family: 'Gothic A1', sans-serif;
+     margin-top: 20px;
+     margin-bottom: 20px;
+}
+   

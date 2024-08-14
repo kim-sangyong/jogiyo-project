@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="notice">
+ 	<insert id="insertNotice" parameterType="noticeDTO">
+ 		insert into jnoti values(jnot_seq.nextval, #{subject}, #{content}, sysdate)
+ 	</insert>
+ 	<select id="listNotice" resultType="noticeDTO">
+ 		select * from jnoti
+ 	</select>
+ 	<select id="viewNotice" resultType="noticeDTO" parameterType="int">
+ 		select * from jnoti where notiid = #{notiid}
+ 	</select>
+	<delete id="deleteNotice" parameterType="int"> 
+		delete from jnoti where notiid = #{notiid} 
+	</delete>
+	<update id="editNotice" parameterType="noticeDTO"> 
+		update jnoti set subject = #{subject}, content = #{content} where notiid = #{notiid} 
+	</update>
+	<select id="indexNotice" resultType="noticeDTO">
+		select *
+		from jnoti
+		order by to_date(indate, 'yyyy-mm-dd hh24:mi:ss') desc
+		fetch first 1 row only
+	</select>
+	<select id="countNotice" resultType="boolean">
+			select case
+	         when count(*) > 1 then 1
+	         when count(*) = 0 then 0
+	         else count(*)
+	       end as result
+			from jnoti
+	</select>
+	<select id="getNotice" parameterType="map" resultType="noticeDTO">
+    <![CDATA[
+   SELECT * FROM (
+    SELECT ROWNUM AS rnum, R.* FROM (
+    SELECT * FROM jnoti ORDER BY indate DESC
+    ) R
+    WHERE ROWNUM <= #{endIndex}
+    ) WHERE rnum > #{startIndex}
+    ]]>
+   </select>
+    <select id="getNoticeCount" resultType="int">
+    SELECT COUNT(*) AS TOTAL_COUNT
+    FROM Jnoti
+    </select>
+	
+ </mapper>

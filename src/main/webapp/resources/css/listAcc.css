@@ -1,0 +1,56 @@
+/* 전체 테이블 스타일 */
+.styled-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 테이블 셀 스타일 */
+.styled-table th, .styled-table td {
+    padding: 12px;
+    text-align: left;
+}
+
+/* 테이블 헤더 스타일 */
+.styled-table th {
+    background-color: #fa0050;
+    color: white;
+    font-weight: bold;
+}
+
+/* 짝수 번째 행 배경색 설정 */
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* 마우스 호버 효과 */
+.styled-table tr:hover {
+    background-color: #ff3385;
+    color: white;
+}
+/* 검색 버튼 스타일 */
+.btn-search {
+    margin-left: 10px;
+}
+
+/* 버튼 공통 스타일 */
+.btn {
+    background-color: #fa0050;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff3385;
+}
+
+/* 삭제 버튼과 같은 스타일 */
+.btn-delete {
+    background-color: #ff0000;
+    margin-left: 10px;
+}

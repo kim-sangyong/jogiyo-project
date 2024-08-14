@@ -1,0 +1,113 @@
+@charset "UTF-8";
+ 
+body {
+   align: center;
+    font-family: Arial, sans-serif;
+    background-color: #white;
+    margin: 0;
+    padding: 0;
+    color: #white;
+}
+.store-container2 {
+    
+    align-items: flex-start; /* 세로 방향 정렬을 위해 flex-start 설정 */
+    justify-content: flex-start; /* 툴바와 컨텐츠를 양쪽 끝으로 배치 */
+    height: 100vh; /* 화면 전체 높이 사용 */
+    padding: 0px; /* 전체적인 여백 설정 */
+}
+h1 {
+    color: #fa0050;
+    margin-bottom: 20px;
+    font-weight: bold;  
+    font-family: 'Gothic A1';
+}
+.content {
+    flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
+    padding: 20px; /* 내용 여백 설정 */
+    text-align: center; /* 가운데 정렬 */
+}
+.toolbar {
+    background-color: #f0f0f0; /* 회색 배경색 */
+    padding: 10px 0; /* 상하 패딩 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+.toolbar a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #333; /* 링크 색상 */
+    padding: 10px 20px; /* 패딩 추가 */
+    display: block; /* 블록 레벨 요소로 변경 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 효과 */
+}
+.toolbar li {
+    margin: 0 50px; /* 리스트 항목 간의 간격 */
+}
+.toolbar ul {
+    list-style: none; /* 리스트 스타일 제거 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 플렉스 박스를 사용하여 가로 정렬 */
+    justify-content: center; /* 가운데 정렬 */
+}
+.toolbar a:hover {
+    background-color: #ddd; /* 마우스 오버 시 배경색 변경 */
+    color: #000; /* 마우스 오버 시 글자색 변경 */
+}
+.content {
+    flex: 1;
+    padding: 0px;
+    text-align: center;
+    margin-right: 720px
+}
+.stop-container{
+   text-align: center;
+   padding:20px;
+}
+form {
+    margin-bottom: 20px; /* 폼 사이 여백 추가 */
+}
+.stop-label {
+    font-weight: bold; /* 레이블 텍스트 굵게 설정 */
+    display: block; /* 레이블 블록 레벨 요소로 설정하여 한 줄에 하나씩 표시 */
+    margin-top: 15px; /* 레이블 위 여백 추가 */
+    font-size: 18px; /* 레이블 글꼴 크기 설정 */
+    color: #333; /* 레이블 글자색 설정 */
+}
+.custom-button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+}
+.custom-button2 {
+        padding: 10px 220px;
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+}
+input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+    box-sizing: border-box; /* 내부 패딩 및 테두리를 포함한 크기 지정 */
+}
+.custom-button:hover {
+        background-color: #45a049;
+}
+.custom-button2:hover {
+        background-color: #da190b;
+}
+.tool-h1 {
+    color: #fa0050;
+    margin-bottom: 20px;
+    font-weight: bold;  
+    font-family: 'Gothic A1';
+}

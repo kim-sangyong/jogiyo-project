@@ -1,0 +1,78 @@
+@charset "UTF-8";
+    body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+    
+    .container {
+        margin-top: 50px;
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(1, 1, 1, 0.2);
+    }
+    
+    .form-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .form-table td {
+        padding: 10px;
+        text-align: left;
+    }
+    
+    .form-table input[type="text"],
+    .form-table textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+        background-color: white;
+        margin-top: 5px;
+    }
+    
+    .form-table textarea {
+        height: 150px;
+    }
+    
+    .form-table button {
+        padding: 12px 20px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #fa0050;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+    
+    .form-table button:hover {
+        background-color: #c20040;
+    }
+    
+    .form-heading {
+        text-align: left;
+        font-size: 24px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    
+    .form-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    a {
+        color: red;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #c20040;
+    }

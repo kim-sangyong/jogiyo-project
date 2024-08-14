@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="delivery">
+	<insert id="insertDelivery" parameterType="deliveryDTO">
+		insert into jdelivery (deliveryid, id, storeid, 
+		storeaddress, destiaddress, menuname, ordertime, run)
+		select jdelivery_seq.nextval, #{id}, #{storeid}, 
+       (select address from jstore where storeid = #{storeid}), 
+       #{destiaddress}, 
+       #{menuname}, 
+       sysdate, 
+       0
+	   from dual
+	</insert>
+	<select id="viewDelivery" parameterType="int" resultType="deliveryDTO">
+		select * from jdelivery where deliveryid = #{deliveryid}
+	</select>
+	<select id="seqDelivery" resultType="int">
+		SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'JDELIVERY_SEQ'
+	</select>
+	<update id="deliveryStatus">
+		UPDATE jdelivery
+		SET run = CASE
+		    WHEN SYSDATE > ordertime + INTERVAL '30' MINUTE THEN 2
+		    WHEN SYSDATE > ordertime + INTERVAL '10' MINUTE THEN 1
+		    ELSE run
+		END
+		WHERE SYSDATE > ordertime + INTERVAL '10' MINUTE AND run != 2
+	</update>
+	<select id="listDelivery" resultType="deliveryDTO" parameterType="String">
+		SELECT j.*, j2.STORENAME FROM JDELIVERY j, JSTORE j2 WHERE j.STOREID = j2.STOREID AND j.ID = #{id}
+	</select>
+</mapper>

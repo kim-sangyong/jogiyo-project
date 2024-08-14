@@ -1,0 +1,52 @@
+@charset "UTF-8";
+<style>
+.button-container {
+    text-align: center; /* 버튼을 가운데 정렬 */
+    margin-top: 50px; /* 위 여백 추가 */
+    margin-bottom: 200px;
+}
+
+.my-info-button {/* myInfo.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.my-info-container {
+    text-align: center; /* 버튼을 가운데 정렬 */
+    margin-top: 200px; /* 위 여백 추가 */
+    margin-bottom: 200px; /* 아래 여백 추가 */
+}
+
+.my-info-button {
+    padding: 20px 50px; /* 버튼의 패딩 조정 */
+    background-color: #fa0050;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 10px; /* 버튼 사이의 여백 */
+}
+
+.my-info-button:hover {
+    background-color: #45a049;
+}
+   padding: 30px 80px;
+            background-color: #fa0050;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+}
+    .my-info-button:hover {
+            background-color: #45a049;
+        }
+}
+</style>

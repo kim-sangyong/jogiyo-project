@@ -1,0 +1,245 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.cp_list {
+	margin-top: 33px;
+	width: 500px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 14px;
+}
+
+.cp_list .cp_items {
+	width: 240px;
+	border: 1px solid #ccc;
+}
+
+.cp_list .cp_items a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.cp_list .cp_items .cpn_txt {
+	padding: 14px 24px;
+}
+
+.cp_list .cp_items .cpn_tit {
+	font-size: 18px;
+}
+
+.cp_list .cp_items .cpn_desc {
+	margin-top: 14px;
+	font-size: 16px;
+}
+
+.tab {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+}
+
+.tab button:hover {
+	background-color: #ddd;
+}
+
+.tab button.active {
+	background-color: #ccc;
+}
+
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+
+.menu-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #ddd;
+	padding: 10px 0;
+}
+
+.menu-item img {
+	width: 80px;
+	height: 80px;
+}
+
+.menu-item-content {
+	flex-grow: 1;
+	margin-left: 10px;
+}
+
+.menu-item-title {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.menu-item-description {
+	font-size: 14px;
+	color: #555;
+	text-align: center;
+}
+
+.menu-item-price {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.dropdown {
+	border: 1px solid #ddd;
+	margin-top: 10px;
+}
+
+.dropdown .dropbtn {
+	width: 100%;
+	background-color: #f1f1f1;
+	color: #333;
+	padding: 14px 20px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown .dropbtn:hover, .dropdown .dropbtn.active {
+	background-color: #ddd;
+	color: #000;
+}
+
+.dropdown .dropbtn:focus {
+	outline: none;
+}
+
+.dropdown-content {
+	display: none;
+	padding: 10px;
+}
+
+.dropdown .dropbtn.active+.dropdown-content {
+	display: block;
+}
+
+input.check_btn {
+	display: none;
+	margin-right: 10px;
+}
+
+input.check_btn+label {
+	cursor: pointer;
+}
+
+input.check_btn+label>span {
+	vertical-align: middle;
+	padding-left: 5px;
+}
+
+/* label:before에 체크하기 전 상태 CSS */
+input.check_btn+label:before {
+	content: "";
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	border: 2px solid #fa0050;
+	border-radius: 4px;
+	vertical-align: middle;
+}
+
+/* label:before에 체크 된 상태 CSS */
+input.check_btn:checked+label:before {
+	content: "";
+	background-color: #fa0050;
+	border-color: #fa0050;
+	background-image: url('check_btn.png');
+	background-repeat: no-repeat;
+	background-position: 50%;
+}
+
+.menu-item-qty {
+	position: relative;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	color: #333;
+	width: 150px; /* 선택 박스의 너비 */
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	overflow: hidden; /* 드롭다운 목록이 넘치지 않도록 설정 */
+	background-color: #fff;
+}
+
+/* 선택 박스 스타일 */
+.menu-item-qty select {
+	appearance: none; /* 기본 스타일링 제거 (모바일에서 사용) */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding: 10px 30px 10px 10px; /* 내부 패딩 */
+	display: block;
+	width: 100%;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	outline: none;
+}
+
+/* 드롭다운 화살표 스타일 */
+.menu-item-qty::after {
+	content: '\25BC'; /* 화살표 아이콘 (▼) */
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%);
+	font-size: 16px;
+	pointer-events: none; /* 클릭 이벤트 방지 */
+}
+
+/* 드롭다운 목록 스타일 */
+.menu-item-qty select option {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+}
+
+.menu-item-qty select option:last-child {
+	border-bottom: none;
+}
+
+.button_btn {
+	padding: 8px 10px;
+	background-color: #fa006c;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	width: 120px;
+	margin: 30px;
+}

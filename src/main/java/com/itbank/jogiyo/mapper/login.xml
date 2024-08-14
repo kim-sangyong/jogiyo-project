@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="login">
+
+	<select id="listAccount" resultType="loginDTO">
+		select * from jaccount
+	</select>
+	
+	<select id="isPassword" parameterType="loginDTO" resultType="boolean">
+		select case when count(*) = 1 then 1 else 0 end as result from jaccount where id = #{id} and passwd = #{passwd}
+	</select>
+	
+	<select id="getAccount" parameterType="string" resultType="loginDTO">
+		select * from jaccount where id = #{id}
+	</select>
+	
+	<select id="listAccountGrade" resultType="loginDTO" parameterType="string">
+		select * from jaccount where grade = #{grade}
+	</select>
+	
+	<delete id="deleteUser" parameterType="string">
+		delete from jaccount where id = #{id}
+	</delete>
+	
+	<insert id="test">
+		insert into jaccount values (jbasket_seq.nextval, '1234', '이름', '메일1', '010', '1')
+	</insert>
+	
+	<insert id="join_membership_ok" parameterType="loginDTO">
+		 insert into jaccount values(#{id}, #{passwd}, #{name}, #{mail}, #{phone}, 'ROLE_3')
+	</insert>
+	
+	<insert id="owner_membership_ok" parameterType="loginDTO">
+		insert into jaccount values(#{id}, #{passwd}, #{name}, #{mail}, #{phone}, 'ROLE_4')
+	</insert>
+	
+	<select id="checkId" resultType="int" parameterType="string">
+		select count(*) from jaccount where id=#{id}
+	</select>
+	
+	<select id="id_find" resultType="LoginDTO" parameterType="java.util.Map">
+		select * from jaccount where name = #{name} and phone = #{phone}
+	</select>
+	
+	<select id="pw_find" resultType="LoginDTO" parameterType="java.util.Map">
+		select * from jaccount where name = #{name} and id = #{id} and phone = #{phone}
+	</select>
+		
+	<select id="isPass" resultType="String" parameterType="String">
+		select passwd from jaccount where id = #{id}
+	</select>
+	
+	<update id="updatePassword">
+		update jaccount set passwd = #{passwd} where id = #{id}
+	</update>
+	
+	<select id="ownerList" resultType="loginDTO">
+       select * from jaccount where grade = 'ROLE_4'
+   </select>
+   
+   <update id="ownerListOk" parameterType="loginDTO">
+      update jaccount set grade = 'ROLE_2' where id = #{ownerId}
+   </update>
+   
+</mapper>

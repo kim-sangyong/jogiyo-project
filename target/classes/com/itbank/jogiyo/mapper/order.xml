@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="order">
+	<select id="dateOrder" parameterType="java.util.Map" resultType="orderDTO">
+		SELECT storeid, SUM(totprice) AS totprice, STORENAME, COUNT(*) AS CNT
+		FROM (
+		    SELECT totprice, j2.STORENAME, j1.storeid 
+		    FROM jorder j1
+		    JOIN JSTORE j2 ON j1.STOREID = j2.STOREID
+		    WHERE indate >= TO_DATE(#{cal1}, 'YYYY-MM-DD') 
+		    AND indate &lt; TO_DATE(#{cal2}, 'YYYY-MM-DD')+1
+		) subquery
+		GROUP BY storeid, STORENAME
+	</select>
+	<select id= "orderList" parameterType="int" resultType="OrderListDTO">
+	SELECT TO_CHAR(indate,'DL HH24:MI:SS')AS indate, 
+		ListAGG(menuname, ',')WITHIN group(ORDER BY qty)AS menuname
+		,MAX(id)AS id ,sum(totprice) AS totprice ,max (phone) AS phone, 
+		ListaGG(QTY,'개&#160;|&#160;')WITHIN group(ORDER BY qty)AS QTY
+			from(
+				select j1.indate ,j3.menuname,j1.qty,j1.totprice,j2.id,j2.phone
+				from jorder j1  
+				join jaccount j2
+				on j1.id = j2.id
+				join jmenu j3
+				on j1.menuid = j3.menuid
+		WHERE j1.storeid=#{storeid}
+		ORDER BY INDATE DESC)
+		GROUP BY INDATE
+	</select>
+	
+	<select id="menuSales" parameterType ="orderListDTO"  resultType="orderListDTO">
+	SELECT 
+		j2.MENUNAME,
+		SUM(j1.TOTPRICE) AS menu_totprice    
+	FROM 
+		jorder j1 
+		JOIN JMENU j2 ON j2.MENUID = j1.MENUID
+		JOIN JACCOUNT j3 ON j3.ID = j1.ID
+	WHERE 
+		j1.STOREID = #{storeid} AND j1.indate BETWEEN  TO_DATE(#{date1} ,'YYYY-MM-DD') AND TO_DATE(#{date2},'YYYY-MM-DD')+1  
+	GROUP BY 
+		j2.MENUNAME
+	ORDER BY 
+		menu_totprice DESC
+	</select>
+	<select id="indateSales" parameterType ="orderListDTO"  resultType="orderListDTO">
+		SELECT 
+   			 TO_CHAR(INDATE, 'YYYY-MM-dd') AS Daily,
+   			 SUM(totprice) AS Daily_total
+		FROM (
+   		 SELECT 
+			j1.TOTPRICE,
+			j1.INDATE,
+			j1.ID,
+			j1.QTY,
+			j2.MENUNAME,
+			j3.PHONE 
+		FROM 
+       		jorder j1 
+			JOIN JMENU j2 ON j2.MENUID = j1.MENUID
+			JOIN JACCOUNT j3 ON j3.ID = j1.ID
+		WHERE 
+			j1.STOREID = #{storeid} AND j1.indate BETWEEN  TO_DATE(#{date1} ,'YYYY-MM-DD') AND TO_DATE(#{date2},'YYYY-MM-DD')+1 
+	) subquery
+		GROUP BY 
+   	 TO_CHAR(INDATE, 'YYYY-MM-dd')
+UNION all
+   		 SELECT 
+   			 TO_CHAR(INDATE, 'YYYY-MM') AS Daily,
+   			 SUM(totprice) AS Daily_total
+		FROM (
+   		 SELECT 
+	        j1.TOTPRICE,
+	        j1.INDATE,
+	        j1.ID,
+	        j1.QTY,
+	        j2.MENUNAME,
+	        j3.PHONE 
+    	FROM 
+     	   jorder j1 
+        JOIN JMENU j2 ON j2.MENUID = j1.MENUID
+        JOIN JACCOUNT j3 ON j3.ID = j1.ID
+  	  WHERE 
+    	   j1.STOREID = #{storeid} AND j1.indate BETWEEN  TO_DATE(#{date1} ,'YYYY-MM-DD') AND TO_DATE(#{date2},'YYYY-MM-DD')+1 
+		) subquery
+		GROUP BY 
+		    TO_CHAR(INDATE, 'YYYY-MM')
+		ORDER BY 
+ 		   Daily ASC
+	</select>
+	<!--  (년 , 월 ,일 별로 매출총합 가져오는 쿼리 (indate 뒤 'YYYY-MM-DD' 조절해주면됨)
+	 SELECT 
+    TO_CHAR(INDATE, 'YYYY-MM') AS month,
+    SUM(totprice) AS monthly_total
+FROM (
+    SELECT 
+        j1.TOTPRICE,
+        j1.INDATE,
+        j1.ID,
+        j1.QTY,
+        j2.MENUNAME,
+        j3.PHONE 
+    FROM 
+        jorder j1 
+        JOIN JMENU j2 ON j2.MENUID = j1.MENUID
+        JOIN JACCOUNT j3 ON j3.ID = j1.ID
+    WHERE 
+        j1.STOREID = 34 AND indate BETWEEN TO_DATE('2024-06-10', 'YYYY-MM-DD') AND TO_DATE('2024-06-25', 'YYYY-MM-DD')+1 
+) subquery
+GROUP BY 
+    TO_CHAR(INDATE, 'YYYY-MM')
+ORDER BY 
+    month ASC;
+	
+	 -->
+</mapper>

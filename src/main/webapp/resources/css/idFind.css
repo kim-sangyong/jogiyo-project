@@ -1,0 +1,236 @@
+@charset "UTF-8";
+
+/* 기본 스타일 */
+.form-container {
+	margin: 0 auto; /* 자동 설정 */
+	border-collapse: collapse; /* 테이블 또는, 셀의 테두리 선을 단선으로 나타냄 */
+	width: 25%;
+	border: 1px solid #ddd; /* 테두리 1줄 회색으로 나타냄 */
+	border-radius: 8px; /* 테두리 굴곡을 8px 만큼? */
+	box-shadow: 0 8px 16px rgba(1, 1, 1, 0.2);
+	background-color: #f9f9f9;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 25px;
+}
+
+/* td 버튼 스타일 */
+td button {
+	background-color: #fa0050;
+	color: white;
+	border: none;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 5px 0;
+	width: calc(110% - 5px);
+}
+
+td button:disabled {
+	background: #A2A2A2
+}
+
+#dupli { /* 중복확인 버튼 */
+	background-color: #fa0050;
+	color: white;
+	border: none;
+	padding-top: 8px; /* 위쪽 padding 설정 */
+	padding-bottom: 8px; /* 아래쪽 padding 설정 */
+	padding-left: 7px; /* 왼쪽 padding 설정 */
+	padding-right: 7px; /* 오른쪽 padding 설정 */
+	cursor: pointer;
+	border-radius: 5px;
+	width: 22%; /* 버튼 넓이 */
+	display: block;
+	margin: 10px auto;
+	margin-top: 12px;
+	margin-left: 3px;
+	font-size: 13px;
+}
+
+#button-lo {
+	background-color: #fa0050;
+	color: white;
+	border: none;
+	padding-top: 8px; /* 위쪽 padding 설정 */
+	padding-bottom: 8px; /* 아래쪽 padding 설정 */
+	padding-left: 7px; /* 왼쪽 padding 설정 */
+	padding-right: 7px; /* 오른쪽 padding 설정 */
+	cursor: pointer;
+	border-radius: 5px;
+	width: 10%; /* 버튼 넓이 */
+	display: block;
+	margin: 10px auto;
+	margin-left: 3px;
+	font-size: 13px;
+}
+
+#button-lo2 {
+	background-color: #fa0050;
+	color: white;
+	border: none;
+	padding-top: 8px; /* 위쪽 padding 설정 */
+	padding-bottom: 8px; /* 아래쪽 padding 설정 */
+	padding-left: 7px; /* 왼쪽 padding 설정 */
+	padding-right: 7px; /* 오른쪽 padding 설정 */
+	cursor: pointer;
+	border-radius: 5px;
+	width: 10%; /* 버튼 넓이 */
+	display: block;
+	margin: 10px 10px 10px;
+	font-size: 13px;
+}
+
+#ok:disabled { /* disabled 상태일때 회색 풀리면 원래 css색상으로 돌아옴 */
+	background: #A2A2A2
+}
+
+/* 확인 submit */
+.form-container input[type="submit"] {
+	background-color: #fa0050;
+	color: white;
+	border: none;
+	padding-top: 8px; /* 위쪽 padding 설정 */
+	padding-bottom: 8px; /* 아래쪽 padding 설정 */
+	padding-left: 7px; /* 왼쪽 padding 설정 */
+	padding-right: 7px; /* 오른쪽 padding 설정 */
+	cursor: pointer;
+	border-radius: 5px;
+	width: 25%; /* 버튼 넓이 */
+	height: display: block;
+	margin: 10px auto;
+	margin-left: 20px;
+	font-size: 13px;
+}
+
+/* 텍스트, 비밀번호 윤곽 */
+.form-container input[type="text"], .form-container input[type="password"]
+	{
+	width: calc(100% - 20px);
+	padding-top: 7px; /* 위쪽 padding 설정 */
+	padding-bottom: 7px; /* 아래쪽 padding 설정 */
+	padding-left: 8px; /* 왼쪽 padding 설정 */
+	padding-right: 8px; /* 오른쪽 padding 설정 */
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	display: block;
+	margin: 10px auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	font-size: 14px;
+}
+
+.form-container input[type="text"]:disabled, .form-container input[type="password"]:disabled
+	{
+	background-color: #ccc; /* 배경색 설정 */
+	color: #a0a0a0; /* 텍스트 색상 설정 */
+	border: 1px solid #ccc; /* 테두리 색상 설정 */
+}
+
+.form-row {
+	display: flex; /* 플렉스 박스를 사용하여 수평 정렬 */
+	align-items: center; /* 세로 중앙 정렬 */
+	margin-top: 30px;
+	gap: 10px; /* 요소들 사이의 간격 설정 */
+}
+
+.form-img {
+	text-align: center; /* 부모 요소에서 자식 요소를 중앙 정렬 */
+	margin-top: 40px;
+}
+
+.center-img {
+	display: inline-block; /* a 태그를 인라인 블록 요소로 변환 */
+}
+
+.buttons {
+	display: flex; /* 플렉스 박스를 사용하여 수평 정렬 */
+	align-items: center; /* 세로 중앙 정렬 */
+	margin-bottom: 10px; /* 행 간의 간격 조절 */
+	gap: 20px; /* 요소들 사이의 간격 설정 */
+}
+
+.form-container button {
+	flex: 1; /* 버튼들이 균등하게 나누어지도록 설정 */
+	padding: 7px 14px; /* 버튼의 패딩 설정 */
+	border-radius: 5px; /* 버튼의 테두리 둥글게 설정 */
+	border: none; /* 버튼의 테두리 제거 */
+	font-size: 14px; /* 버튼의 폰트 크기 설정 */
+	margin-top: 10px;
+	cursor: pointer; /* 커서 포인터 설정 */
+}
+
+.label-lo {
+	width: 100px; /* 라벨의 너비 설정 */
+	text-align: right; /* 텍스트 오른쪽 정렬 */
+	margin-right: 10px; /* 입력 필드와의 간격 조절 */
+	margin-bottom: 4px; /* 행간의 간격 조절 */
+	color: black; /* 텍스트 색상 설정 */
+	font-size: 14px; /* 폰트 크기 설정 */
+	line-height: 1.5; /* 라벨 텍스트의 높이 조절 */
+	font-weight: bold;
+}
+
+.input-lo {
+	display: flex; /* 입력 필드들을 수평으로 정렬 */
+	align-items: center; /* 입력 필드들을 세로 중앙 정렬 */
+	flex: 1;
+}
+
+.input input {
+	width: 100%; /* 입력 필드의 너비를 가능한 최대 크기로 설정 */
+	padding: 7px; /* 입력 필드의 패딩 설정 */
+	border-radius: 5px; /* 입력 필드의 테두리 둥글게 설정 */
+	border: 1px solid #ccc; /* 입력 필드의 테두리 색상 설정 */
+	font-size: 14px; /* 폰트 크기 설정 */
+}
+
+#under { /* 상세내용 펼치기 a태그에 대한 밑줄 추가 */
+	text-decoration: underline;
+	margin-right: 25%;
+}
+
+#under_two { /* 도움말 a태그에 대한 밑줄 추가 */
+	text-decoration: underline;
+}
+
+table {
+	border-spacing: 3px; /* 테이블 셀 사이의 간격을 설정함 */
+}
+
+table, tr, td {
+	padding: 7px; /* 테이블과 각 행, 셀의 내부 여백을 설정하여 간격을  줌 */
+}
+
+.buttons input {
+	
+}
+
+.delete {
+	margin-right: 50px;
+	margin-top: 10px;
+	color: red;
+}
+
+.open {
+	margin-right: 60%;
+}
+
+.help {
+	margin-right: 14%;
+	color: red;
+}
+
+/********************* Mobile *********************/
+@media all and (max-width:800px) {
+	.form-container {
+		margin: 0 auto; /* 자동 설정 */
+		border-collapse: collapse; /* 테이블 또는, 셀의 테두리 선을 단선으로 나타냄 */
+		width: 90%;
+	}
+}

@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+#Review fieldset{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl; /* 이모지 순서 반전 */
+    border: 0; /* 필드셋 테두리 제거 */
+}
+#Review fieldset legend{
+    text-align: left;
+}
+#Review input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
+}
+#Review label{
+    font-size: 2em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
+}
+#Review label:hover{
+    text-shadow: 0 0 0 #ffa500; /* 마우스 호버 */
+}
+#Review label:hover ~ label{
+    text-shadow: 0 0 0 #ffa500; /* 마우스 호버 뒤에오는 이모지들 */
+}
+#Review input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #ffa500; /* 마우스 클릭 체크 */
+}
+#Review input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#Review input[type=submit]:hover {
+    background-color: #45a049;
+}
+#Review textarea {
+    width: 90%;
+    height: 100px; /* 리뷰 내용 입력란의 높이를 조정하세요 */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical; /* 수직 리사이징 가능하도록 설정 */
+}
+#Review .review-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#Review .review-content h2 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+#Review .review-content .reply {
+    color: #666;
+    margin-top: 5px;
+}
+
+#Review .star-rating {
+    margin-top: 10px;
+}
+
+#Review .star-rating fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+}
+
+#Review .star-rating label {
+    font-size: 2em;
+    color: #ccc; /* 기본 별 색상 */
+    cursor: pointer;
+    padding: 0 3px; /* 별이 잘 보이도록 패딩 조정 */
+}
+
+/* 채워진 별 색상 조정 */
+#Review .star-rating input[type=radio] + label:before {
+    content: '\2605'; /* 별 모양의 유니코드 */
+    display: inline-block;
+    color: #ffa500; /* 채워진 별 기본 색상 */
+}
+
+/* 선택되지 않은 별 색상 조정 */
+#Review .star-rating input[type=radio]:not(:checked) + label:before {
+    color: #ccc;
+}
+
+/* 선택된 별 색상 조정 */
+#Review .star-rating input[type=radio]:checked + label:before {
+    color: #ffa500; /* 선택된 별 색상 변경 */
+}

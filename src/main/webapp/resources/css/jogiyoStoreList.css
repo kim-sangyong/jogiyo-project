@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	margin-bottom: 5%;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	background-color: #f8f8f8;
+	border-bottom: 1px solid #ddd;
+}
+
+header input {
+	width: 200px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+nav a {
+	margin: 0 10px;
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+}
+
+nav a.active {
+	color: #fa0050;
+}
+
+main {
+	padding: 20px;
+}
+
+.sorting {
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+.listings {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	text-align: center;
+}
+
+.listing {
+	position: relative;
+	display: flex;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background-color: #fff;
+}
+
+.listing.active::after {
+	content: '[현재 영업중인가게가 아닙니다.]';
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-flex;
+	width: 100%;
+	height: 100%;
+	font-size: 25px;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fffc;
+}
+
+.listing img {
+	width: 100px;
+	height: 100px;
+	margin-right: 20px;
+}
+
+.details {
+	flex: 1;
+	position: relative;
+}
+
+.details h2 {
+	margin: 0;
+	font-size: 18px;
+	color: #333;
+}
+
+.details .rating {
+	font-size: 16px;
+	color: #f39c12;
+}
+
+.details .reviews, .details .min_order, .details .discount, .details .time
+	{
+	margin-top: 5px;
+	font-size: 14px;
+	color: #666;
+}
+
+.details .time {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin-top: 0;
+}
+
+.details .discount {
+	color: #fa0050;
+	font-weight: bold;
+}
+
+.sorting select {
+	padding: 10px 30px 10px 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background-color: #fff;
+	font-size: 16px;
+	color: #333;
+	appearance: none;
+	/* Removes default arrow */
+	background-image:
+		url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICA8cGF0aCBmaWxsPSIjMDAwIiBkPSJNMTMuNTc1IDUuNjgybC01LjUgNS41YTEuMDAxIDEuMDAxIDAgMCAxLTEuNDE4IDBsLTUuNS01LjVhMS4wMDEgMS4wMDEgMCAxIDEgMS40MTgtMS40MTdsNC41OTIgNC41OTNMMTEuOTY4IDQuMjZhMS4wMDEgMS4wMDEgMCAwIDEgMS40MTggMS40MTh6Ii8+Cjwvc3ZnPg==');
+	/* Custom arrow */
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	background-size: 12px;
+}
+.s_btn{
+	background-color: #fa0050;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.s_btn:hover{
+	background-color: #e00045;
+}

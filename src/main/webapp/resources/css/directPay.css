@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+.order-table-container {
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	max-width: 1200px;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.order-header h2 {
+	font-size: 28px;
+	margin-bottom: 50px;
+	font-weight: bold;
+}
+
+.order-table {
+	width: 80%;
+	border-collapse: collapse;
+	margin-top: 20px;
+}
+
+.order-table th, .order-table td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #dddddd;
+	text-align: center;
+}
+
+.menu-wrap {
+	padding: 30px;
+	background-color: #fff;
+	text-align: left;
+	height: 200px;
+	display: flex;
+	align-items: flex-start;
+	width: 70%;
+	flex-direction: column;
+	justify-content: center;
+	overflow-y: auto;
+	border: 1px solid #e3e3e3;
+}
+
+.menu-item {
+	font-size: 18px;
+	word-spacing: 20px;
+	margin-bottom: 15px;
+	position: relative;
+	margin-left: 10px;
+}
+
+.menu-item:last-child {
+	margin-bottom: 0px;
+}
+
+.menu-item p:last-child {
+	margin: 0px;
+}
+
+.menu-item p {
+	
+}
+
+.menu-item p::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 9px;
+	transform: translateY(50%);
+	left: 0;
+	width: 3px;
+	height: 3px;
+	background-color: #333;
+	margin-left: -10px;
+}
+
+#orderList {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.total-wrap {
+	background-color: #fa0050;
+	padding: 20px;
+	height: 200px;
+	width: 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.coupon-info {
+	font-size: 16px;
+	color: #fff;
+	opacity: 0.8;
+	margin-bottom: 10px;
+}
+
+.total-amount {
+	font-size: 20px;
+	margin-top: 20px;
+	color: #fff;
+}
+
+.total-amount strong {
+	font-weight: bold;
+}
+
+.form-group-wrap {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	background-color: #f9f9f9;
+	padding: 30px 20px;
+	/* border: 1px solid #eeeeee; */
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.form-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.input-field, .button-field {
+	height: 40px;
+	border-radius: 0px;
+	padding: 0 10px;
+	margin: 5px;
+}
+
+.input-field {
+	width: 180px;
+	min-width: 100px;
+	border: 1px solid #ccc;
+}
+
+.button-field {
+	background: #646464;
+	color: #ffffff;
+	border: none;
+	cursor: pointer;
+	padding: 0 20px;
+	margin-right: 30px;
+	transition: all 0.5s;
+}
+
+.button-field:hover {
+	background: #525252;
+}
+
+.button-pay {
+	font-weight: bold;
+	min-width: 100px;
+	background: #fa0050;
+	margin-right: 0;
+	margin-bottom: 20px;
+}
+
+.button-pay:hover {
+	background: #e00047;
+}

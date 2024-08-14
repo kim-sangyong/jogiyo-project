@@ -1,0 +1,51 @@
+@charset "UTF-8";
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #f9f9f9;
+    }
+    .salesContainer {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        max-width: 800px;
+    }
+    .input-group {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .input-group input[type="text"] {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+    .input-group input[type="button"] {
+        background-color: #fa0050;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    .input-group input[type="button"]:hover {
+        background-color: #e00045;
+    }
+    #canvasDiv {
+        display: flex;
+    justify-content: center;
+    align-items: center; /* 수직 정렬을 위해 추가 */
+    margin-top: 20px;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto; /* 좌우 여백을 자동으로 조정하여 가운데 정렬 */
+    }
+    .message {
+        text-align: center;
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 20px;
+    }

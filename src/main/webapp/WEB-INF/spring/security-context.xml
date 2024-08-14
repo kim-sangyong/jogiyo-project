@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    https://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/security 
+    http://www.springframework.org/schema/security/spring-security.xsd">
+    
+    <beans:bean id ="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+    
+    <http pattern="/resources/**" security="none"></http>
+    <http auto-config="true">
+    <intercept-url pattern="/admin/**" access="isAuthenticated()"/>
+    <intercept-url pattern="/customer/**" access="isAuthenticated()"/>
+    <intercept-url pattern="/store/**" access="hasAnyRole('ROLE_1', 'ROLE_2')"/>
+    <form-login
+        login-page="/login/login.do"
+        login-processing-url="/login/loginOk.do"
+        username-parameter="id"
+        password-parameter="passwd" 
+        default-target-url="/login/loginSuccess.do"
+        authentication-failure-url="/login/loginFail.do"
+        />
+        
+    <logout
+        logout-url="/login/logout.do"
+        logout-success-url="/"
+        delete-cookies="JSESSIONID" />
+    </http>
+    
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service 
+                data-source-ref="dataSource" 
+                users-by-username-query="SELECT ID as userName, passwd AS password, 1 enabled FROM JACCOUNT WHERE ID = ?"
+                authorities-by-username-query=
+                "select id, grade as authority from JACCOUNT j where id=?" 
+                />
+            <password-encoder ref="bcryptPasswordEncoder"/>
+        </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.form-container {
+	margin: 0 auto; /* 자동 설정 */
+	border-collapse: collapse; /* 테이블 또는, 셀의 테두리 선을 단선으로 나타냄 */
+	width: 70%;
+	border: 1px solid #ddd; /* 테두리 1줄 회색으로 나타냄 */
+	border-radius: 8px; /* 테두리 굴곡을 8px 만큼? */
+	box-shadow: 0 8px 16px rgba(1, 1, 1, 0.2);
+	background-color: #f9f9f9;
+	padding: auto;
+	display: flex; /* Flexbox 사용 */
+	flex-direction: column; /* 수직 정렬 */
+		
+}
+
+h3 {
+	display: inline-block; /* 회색 밑줄 길이 자동으로 맞춰줌 */
+    border-bottom: 2px solid #ccc; /* 회색 밑줄 */
+    padding-bottom: 5px; /* 밑줄과 텍스트 간격 조절 */
+  }

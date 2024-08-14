@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="store">
+ 	<select id="listStore" resultType="storeDTO">
+ 		select * from jstore
+ 	</select>
+ 	
+ 	<insert id="addStore" parameterType="storeDTO">
+		INSERT INTO JSTORE (storeid,STORENAME,CATEID,STORECONTENT,ID,IMG,COUPONID,ADDRESS,DETAILADDRESS,EXTRAADDRESS,POSTCODE,RUN)
+		values(jstore_seq.nextval,#{storename},#{cateid},#{storecontent},
+		#{id},#{img},#{couponid},#{address},#{detailaddress},#{extraaddress},#{postcode},#{run})
+	</insert>
+	
+	<select id="getStore" parameterType="string" resultType="storeDTO">
+	 SELECT *FROM jstore j1
+ 	JOIN jcate j2 ON j2.cateid = j1.cateid
+	 WHERE id=#{id}  <!--내 가게리스트 보기 -->
+	</select>
+	
+	<select id="getOwner" parameterType="string" resultType="LoginDTO">
+	select *from jaccount where id = #{id}
+	</select>
+	
+	<update id="editOwner" parameterType="LoginDTO">
+	update jaccount set passwd=#{passwd}, name=#{name}, mail=#{mail}, phone=#{phone}, grade=#{grade} where id=#{id}	
+	</update>
+	
+	<delete id="deleteOwner" parameterType="string">
+	delete from jaccount where id = #{id}
+	</delete>
+	
+	<select id ="findStore" parameterType="int" resultType="storeDTO">
+	select * from jstore where storeid= #{storeid}
+	</select>
+	
+	<update id="updateStore" parameterType="storeDTO">
+	update jstore set storename=#{storename},cateid=#{cateid},storecontent=#{storecontent},img= #{img},postcode=#{postcode},address=#{address},detailaddress=#{detailaddress},extraaddress=#{extraaddress} where storeid=#{storeid} 
+	</update>
+	
+	<delete id="deleteStore" parameterType="string">
+	delete from jstore where storename=#{storename}
+	</delete>
+	
+	<select id="findcateid" parameterType="int" resultType="int">
+	select jscateid from jstorecate where storeid=#{storeid}
+	</select>
+	
+	<insert id="addMenu" parameterType="menuDTO">
+	insert into jmenu values(jmenu_seq.nextval,#{storeid},#{jscateid},#{menuname},#{menucontent},#{img},#{price},#{mqty})
+	</insert>
+	
+	<select id="listMenu" parameterType="int" resultType="menuDTO"> 
+			SELECT *
+ 				from jmenu j1
+ 				JOIN jstorecate j2
+ 			on j1.jscateid = j2.jscateid
+ 			where j1.storeid=#{storeid}
+	</select>
+	
+	<delete id="deleteMenu" parameterType="int" >
+	delete from jmenu where menuid=#{menuid}
+	</delete>
+	
+	<select id ="getMenu" parameterType="int" resultType="menuDTO">
+			SELECT *
+ 				from jmenu j1
+ 			JOIN jstorecate j2
+ 				on j1.jscateid = j2.jscateid
+ 			where j1.menuid=#{menuid}
+	</select>
+	
+	<update id="editMenu" parameterType="menuDTO">
+	update jmenu 
+	<set>
+	<if test ="menuname!=null"> menuname=#{menuname}, </if>
+	<if test ="menucontent!=null">menucontent=#{menucontent},</if> 
+	<if test ="img!=null"> img=#{img},</if>
+	<if test ="price!=null"> price=#{price} </if>
+	</set>
+	where menuid=#{menuid}
+	</update>
+	<insert id="addCate" parameterType="java.util.Map">
+	insert into jstorecate values(jstorecate_seq.nextval,#{storeid},#{jstorename})
+	</insert>
+	
+	<select id="getCateList" resultType="jstorecateDTO" parameterType="int">
+		select jstorename,jscateid from jstorecate where storeid=#{storeid}
+	</select>
+	<update id="stopMenu"  parameterType="int">
+	update jmenu set mqty=0 where menuid=#{menuid}
+	</update>
+	<update id="startMenu"  parameterType="int">
+	update jmenu set mqty=1 where menuid=#{menuid}
+	</update>
+	<select id="getAllCate" resultType="categoryDTO">
+		select * from jcate
+	</select>
+	<update id="stopStore" parameterType="StopStoreDTO">
+	update jstore set run=0 , stopdate = TO_DATE(#{selectDatetime},'YYYY-MM-DD') where storeid=#{storeid}
+	</update>
+	<select id="run" resultType="int">
+	select run from jstore where storeid=#{storeid}
+	</select>
+	<update id="runStore" parameterType="int">
+	update jstore set run=1 , stopdate=null where storeid=#{storeid}
+	</update>
+	<update id ="stopStore2" parameterType="int">
+	update jstore set run=0, stopdate=SYSDATE + 1 where storeid=#{storeid}
+	</update>
+	
+	<update id="autorunStore">
+	UPDATE jstore SET run=1 ,stopdate=null WHERE stopdate IS NOT NULL AND stopdate &lt; SYSDATE
+	</update>
+	<insert id="addCoupon" parameterType="CouponDTO">
+	insert into jcoupon values(jcoupon_seq.nextval, #{couname},#{coucontent},#{storeid})
+	</insert>
+	<select id="getReview" parameterType="map" resultType="reviewDTO">
+    <![CDATA[
+    SELECT * FROM (
+        SELECT ROWNUM AS rnum, R.* FROM (
+            SELECT * FROM jreview WHERE storeid = #{storeid} ORDER BY reviewdate DESC
+        ) R
+        WHERE ROWNUM <= #{endIndex}
+    ) WHERE rnum > #{startIndex}
+    ]]>
+    <!--  <select id="getReview" parameterType="int" resultType="reviewDTO">
+	select * from jreview where storeid=#{storeid}
+	</select>-->
+</select>
+	<!--  <select id="getReview" parameterType="int" resultType="reviewDTO">
+	select * from jreview where storeid=#{storeid}
+	</select>-->
+	<update id="addReview" parameterType="reviewDTO">
+	update jreview set reply=#{reply} where reviewid=#{reviewid}
+	</update>
+	<select id="getReview2" parameterType="int" resultType="String">
+	select reply from jreview where reviewid=#{reviewid}
+	</select>
+	<update id="deleteReview" parameterType="int">
+	update jreview set reply=null where reviewid=#{reviewid}
+	</update>
+	<select id="getReviewCount" parameterType="int" resultType="int">
+    SELECT COUNT(*) AS TOTAL_COUNT
+    FROM JREVIEW
+    WHERE STOREID = #{storeid}
+</select>
+<select id ="headerSearch" parameterType="String" resultType="storeDTO">
+ 	SELECT 
+	    j1.*,
+	    COUNT(j2.storeid) AS row_count,
+	    COUNT(j2.reply) AS reply_count,
+	    ROUND(AVG(j2.GRADE), 1) AS rev_avg
+	FROM 
+   	 jstore j1
+	LEFT JOIN 
+    	jreview j2 ON j1.storeid = j2.storeid
+	WHERE 
+	    j1.storename LIKE '%' || #{headerSearch} || '%'
+	    OR j1.address LIKE '%' || #{headerSearch} || '%'
+	GROUP BY 
+	    j1.storeid, j1.storename, j1.address,j1.CATEID ,j1.STORECONTENT ,
+	    j1.ID ,j1.IMG ,j1.COUPONID ,j1.ADDRESS ,j1.DETAILADDRESS ,j1.EXTRAADDRESS ,
+	    j1.POSTCODE ,j1.RUN ,j1.STOPDATE
+</select>
+<update id="updateCoupon" parameterType="int"> update jstore set couponid=couponid+1 where storeid=#{storeid} </update>
+ </mapper>

@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #white;
+    margin: 0;
+    padding: 0;
+    color: #white;
+}
+.content-wrapper {
+    text-align: center; /* Center align content */
+    margin-top: 10px; /* Adjust as needed */
+    width: 70%; /* Adjust width according to your layout */
+    margin: 0 auto; /* Center horizontally */
+    padding-left: 20px; /* Add left padding to shift content to the right */
+    padding-right: 20px; /* Add right padding for symmetry */
+}
+.store-container2 {
+     justify-content: center;
+     align-items: flex-start;
+     min-height: 100vh;
+     align: center;
+}
+.container {
+    width: 50%;
+    margin: 0 auto;
+    color: #white;
+}
+h1 {
+    color: #fa0050;
+    margin-bottom: 20px;
+    font-weight: bold;  
+    font-family: 'Gothic A1';
+    text-align: center;
+}
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+}
+.pagination a {
+    color: #555;
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 4px;
+}
+.pagination a.active {
+    background-color: #fa0050;
+    color: white;
+    border: 1px solid #fa0050;
+}
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+.review-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.review-item {
+    list-style: none;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.review-item:last-child {
+    border-bottom: none;
+}
+.review-content {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+}
+.review-content h3, .review-content p {
+    margin: 10px 0;
+}
+.review-content img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+.star-rating {
+    margin-top: 10px;
+}
+.star-rating input {
+    display: none;
+}
+.star-rating label {
+    color: #ffd700;
+    font-size: 20px;
+}
+.reply {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+button {
+    padding: 10px 20px;
+    color: white;
+    background-color: #fa0050;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: #d90445;
+}
+td button {
+    background-color: #fa0050;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.form-container {
+    display: none;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+        
+.form-container textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+.form-container input[type="submit"], .form-container input[type="button"] {
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+.store-container2 {
+
+    flex-direction: row; /* 기본 방향을 가로로 설정 */
+    justify-content: center; /* 가운데 정렬 */
+    align-items: flex-start; /* 세로 방향 정렬을 위해 flex-start 설정 */
+    height: 100vh; /* 화면 전체 높이 사용 */
+
+    /* 추가적으로 필요한 스타일들 */
+}
+.toolbar {
+    background-color: #f0f0f0; /* 회색 배경색 */
+    padding: 10px 0; /* 상하 패딩 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+.toolbar a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #333; /* 링크 색상 */
+    padding: 10px 20px; /* 패딩 추가 */
+    display: block; /* 블록 레벨 요소로 변경 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 부드러운 전환 효과 */
+}
+.toolbar li {
+    margin: 0 50px; /* 리스트 항목 간의 간격 */
+}
+.toolbar ul {
+    list-style: none; /* 리스트 스타일 제거 */
+    padding: 0;
+    margin: 0;
+    display: flex; /* 플렉스 박스를 사용하여 가로 정렬 */
+    justify-content: center; /* 가운데 정렬 */
+}
+.toolbar a:hover {
+    background-color: #ddd; /* 마우스 오버 시 배경색 변경 */
+    color: #000; /* 마우스 오버 시 글자색 변경 */
+}
+
